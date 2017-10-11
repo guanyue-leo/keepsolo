@@ -33,7 +33,7 @@
 <!--<div id="container"></div>-->
 <div style="width:86px;height: 30px;right: 5%;bottom: 5%;text-align:center;position: absolute">Keep<br/>Building...</div>
 <div id="info"></div>
-<img src="5.png" id="myimg" style="width: 20%;left: 0;margin-left: 40%;margin-top:10%;z-index: 100;opacity: 0;position: absolute"/>
+<img src="5.png" id="myimg" style="width: 20%;left: 0;top: 0;margin-left:40%;margin-top:10%;z-index: 100;opacity: 0;position: absolute"/>
 <!--<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - birds demo-->
 
 <script src="three.min.js"></script>
@@ -442,7 +442,7 @@
 
     function setFilter() {
         var dotime = Date.now()-start;
-        if(dotime < 22528){
+        if(dotime < 27054){
             var time = getTime();
             var liangdu = time;
             var huidu = liangdu<1?1/time/10:liangdu-1;
@@ -450,6 +450,7 @@
             if(duibidui < 1) duibidui = 1;
             if(liangdu>2.5) {
                 document.getElementById('myimg').style.opacity=liangdu-2.5;
+                if((liangdu-2.5) > 1) alert(dotime);
                 liangdu = 2.5;
                 huidu = 1.5;
                 duibidui = 1;
