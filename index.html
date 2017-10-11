@@ -33,7 +33,7 @@
 <!--<div id="container"></div>-->
 <div style="width:86px;height: 30px;right: 5%;bottom: 5%;text-align:center;position: absolute">Keep<br/>Building...</div>
 <div id="info"></div>
-<img src="5.png" id="myimg" style="width: 20%;margin-left: -10%;margin-top:10%;z-index: 100;top: 0;opacity: 0;position: absolute"/>
+<img src="5.png" id="myimg" style="width: 20%;left: 0;margin-left: 40%;margin-top:10%;z-index: 100;opacity: 0;position: absolute"/>
 <!--<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - birds demo-->
 
 <script src="three.js"></script>
@@ -441,19 +441,22 @@
     }
 
     function setFilter() {
-        var time = getTime();
-        var liangdu = time;
-        var huidu = liangdu<1?1/time/10:liangdu-1;
-        var duibidui = -1*(liangdu-0.3)*(liangdu-0.3)+1.5;
-        if(duibidui < 1) duibidui = 1;
-        if(liangdu>2.5) {
-            document.getElementById('myimg').style.opacity=liangdu-2.5;
-            liangdu = 2.5;
-            huidu = 1.5;
-            duibidui = 1;
+        var dotime = Date.now()-start;
+        if(dotime < 22528){
+            var time = getTime();
+            var liangdu = time;
+            var huidu = liangdu<1?1/time/10:liangdu-1;
+            var duibidui = -1*(liangdu-0.3)*(liangdu-0.3)+1.5;
+            if(duibidui < 1) duibidui = 1;
+            if(liangdu>2.5) {
+                document.getElementById('myimg').style.opacity=liangdu-2.5;
+                liangdu = 2.5;
+                huidu = 1.5;
+                duibidui = 1;
+            }
+            document.getElementById('main').style.webkitFilter="brightness("+liangdu+") "+"grayscale("+huidu+") "+"contrast("+duibidui+") ";
+            document.getElementById('main').style.filter="brightness("+liangdu+" )"+"grayscale("+huidu+") "+"contrast("+duibidui+") ";
         }
-        document.getElementById('main').style.webkitFilter="brightness("+liangdu+") "+"grayscale("+huidu+") "+"contrast("+duibidui+") ";
-        document.getElementById('main').style.filter="brightness("+liangdu+" )"+"grayscale("+huidu+") "+"contrast("+duibidui+") ";
     }
 
     function render() {
