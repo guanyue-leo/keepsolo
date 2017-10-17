@@ -126,5 +126,18 @@
         </div>
         <div id="sign"></div>
     </div>
+    <input id="width" title="宽" onchange="change()" type="number">
+    <input id="height" title="高" onchange="change()" type="number">
+    <script type="text/javascript">
+        document.getElementById('width').value = 800;
+        document.getElementById('height').value = 600;
+        function change() {
+            var width  = document.getElementById('width').value;
+            var height = document.getElementById('height').value;
+            console.log(width);
+            document.getElementById('next').style.width  = width+'px';
+            document.getElementById('next').style.height = height+'px';
+        }
+    </script>
 </body>
 </html>
